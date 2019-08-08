@@ -83,16 +83,28 @@ public class Fetchdata extends BaseTest {
 				
 				if(k==currentStep+1) {
 				XSSFRow row = sheet.getRow(k);
-				System.out.println(row.getLastCellNum());
+				
 				
 					
 					XSSFCell cell = row.createCell(columNum);
 					
 					cell.setCellType(CellType.STRING);
+					if(excutionResult=="Pass") {
 					cell.setCellValue(excutionResult);
+					}
+					else {
+						cell.setCellValue(failResult);
+						XSSFCell cell1 = row.createCell(columNum+1);
+						//System.out.println(failMessage);
+						//System.out.println(columNum+1);
+						cell1.setCellValue(failMessage);
+						//XSSFCell cell2 = row.createCell(columNum+2);
+						//cell1.setCellValue(failReason);
+						
+					}
 					FileOutputStream fos = new FileOutputStream(System.getProperty("user.dir") + path);
 					workbook.write(fos);
-					System.out.println("writing in excel: " + excutionResult);
+					//System.out.println("writing in excel: " + excutionResult);
 				}
 					
 				

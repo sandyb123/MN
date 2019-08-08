@@ -32,7 +32,8 @@ public class Keywords  {
 		driver.findElement(By.xpath(OR.getProperty(Object))).click();
 		}
 		catch (Exception e) {
-			return Constants.Keyword_Fail+"not able to click"+e.getMessage();
+			return Constants.Keyword_Fail+ "FR:Message: "+ "not able to click "+ "FR:Reason: " + e.getMessage();
+			
 		}
 		return Constants.Keyword_Pass;
 		
@@ -44,7 +45,7 @@ public class Keywords  {
 		actions.moveToElement(driver.findElement(By.xpath(OR.getProperty(Object)))).build().perform();
 		}
 		catch (Exception e) {
-			return Constants.Keyword_Fail+"not able to hover"+e.getMessage();
+			return Constants.Keyword_Fail+"FR:Message: "+ " not able to hover "+ "FR:Reason:" +e.getMessage();
 		}
 		return Constants.Keyword_Pass;
 	}
@@ -54,7 +55,7 @@ public class Keywords  {
 		driver.get(Config.getProperty(data));
 		}
 		catch (Exception e) {
-			return Constants.Keyword_Fail+"not able to navigate"+e.getMessage();
+			return Constants.Keyword_Fail+"FR:Message: "+"not able to navigate"+" FR:Reason: " +e.getMessage();
 		}
 		return Constants.Keyword_Pass;
 	}
@@ -65,7 +66,7 @@ public class Keywords  {
 		dropdownIndex.selectByIndex(4);
 		}
 		catch (Exception e) {
-			return Constants.Keyword_Fail+"not able to select from dropdown"+e.getMessage();
+			return Constants.Keyword_Fail+"FR:Message: "+"not able to select from dropdown"+" FR:Reason: " +e.getMessage();
 		}
 		return Constants.Keyword_Pass;
 		
@@ -77,7 +78,7 @@ public class Keywords  {
 		jse.executeScript("scroll(0, 250);");
 		}
 		catch (Exception e) {
-			return Constants.Keyword_Fail+"not able to scrolldown"+e.getMessage();
+			return Constants.Keyword_Fail+"FR:Message: "+"not able to scrolldown"+" FR:Reason: " +e.getMessage();
 		}
 		return Constants.Keyword_Pass;
 		
@@ -89,7 +90,7 @@ public class Keywords  {
 		driver.findElement(By.xpath(OR.getProperty(Object))).sendKeys(Config.getProperty(data));
 		}
 		catch (Exception e) {
-			return Constants.Keyword_Fail+"not able to enter the value in field"+e.getMessage();
+			return Constants.Keyword_Fail+"FR:Message: "+"not able to enter the value in field"+" FR:Reason: " +e.getMessage();
 		}
 		return Constants.Keyword_Pass;
 		
@@ -102,7 +103,7 @@ public class Keywords  {
 		dropdownValue.selectByValue(Config.getProperty(data));
 		}
 		catch (Exception e) {
-			return Constants.Keyword_Fail+"not able select the dropdown value by index"+e.getMessage();
+			return Constants.Keyword_Fail+"FR:Message: "+"not able select the dropdown value by index"+" FR:Reason: " +e.getMessage();
 		}
 		return Constants.Keyword_Pass;
 	}
@@ -111,10 +112,10 @@ public class Keywords  {
 		try {
 		String Text = driver.findElement(By.xpath(OR.getProperty(Object))).getText();
 		System.out.println(Object + ":" + Text);
-		return Text;
+		return Constants.Keyword_Pass + ":" + Text;
 		}
 		catch (Exception e) {
-			return Constants.Keyword_Fail+"not able get the text from element"+e.getMessage();
+			return Constants.Keyword_Fail+"FR:Message: "+"not able get the text from element"+" FR:Reason: " +e.getMessage();
 		}
 	}
 	
@@ -127,7 +128,7 @@ public class Keywords  {
 			}
 		}
 			catch (Exception e) {
-				return Constants.Keyword_Fail+"not able accept the cookie"+e.getMessage();
+				return Constants.Keyword_Fail+"FR:Message: "+"not able accept the cookie"+" FR:Reason: " +e.getMessage();
 			}
 		return Constants.Keyword_Pass;
 		}
@@ -137,7 +138,7 @@ public class Keywords  {
 		Thread.sleep(2000);
 		}
 		catch (Exception e) {
-			return Constants.Keyword_Fail+"wait not working"+e.getMessage();
+			return Constants.Keyword_Fail+"FR:Message: "+"wait not working"+" FR:Reason: " +e.getMessage();
 		}
 		return Constants.Keyword_Pass;
 		
@@ -149,7 +150,7 @@ public class Keywords  {
 			Thread.sleep(4000);
 			}
 			catch (Exception e) {
-				return Constants.Keyword_Fail+"wait not working"+e.getMessage();
+				return Constants.Keyword_Fail+"FR:Message: "+"wait not working"+" FR:Reason: " +e.getMessage();
 			}
 			return Constants.Keyword_Pass;
 	}
@@ -159,7 +160,7 @@ public class Keywords  {
 		driver.manage().window().maximize();
 		}
 		catch (Exception e) {
-			return Constants.Keyword_Fail+"maximise window not working"+e.getMessage();
+			return Constants.Keyword_Fail+"FR:Message: "+"maximise window not working"+" FR:Reason: " +e.getMessage();
 		}
 		return Constants.Keyword_Pass;
 		
@@ -173,7 +174,7 @@ public class Keywords  {
 		driver = new ChromeDriver();
 		}
 		catch (Exception e) {
-			return Constants.Keyword_Fail+"Browser not opening"+e.getMessage();
+			return Constants.Keyword_Fail+"FR:Message: "+"Browser not opening"+" FR:Reason: " +e.getMessage();
 		}
 		return Constants.Keyword_Pass;
 		
@@ -184,7 +185,7 @@ public class Keywords  {
 		driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS) ;
 		}
 		catch (Exception e) {
-			return Constants.Keyword_Fail+"Implicit wait not working"+e.getMessage();
+			return Constants.Keyword_Fail+"FR:Message: "+"Implicit wait not working"+" FR:Reason: " +e.getMessage();
 		}
 		return Constants.Keyword_Pass;
 		
@@ -198,7 +199,7 @@ public class Keywords  {
 		String expected = Config.getProperty(data);
 		}
 		catch (Exception e) {
-			return Constants.Keyword_Fail+"actual and expected results are not matching"+e.getMessage();
+			return Constants.Keyword_Fail+"FR:Message: "+"actual and expected results are not matching"+" FR:Reason: " +e.getMessage();
 		}
 		return Constants.Keyword_Pass;
 		
@@ -214,7 +215,7 @@ public class Keywords  {
 		}
 		}
 		catch (Exception e) {
-			return Constants.Keyword_Fail+"element not visible"+e.getMessage();
+			return Constants.Keyword_Fail+"FR:Message: "+"element not visible"+" FR:Reason: " +e.getMessage();
 		}
 		return Constants.Keyword_Pass;
 		
@@ -226,9 +227,31 @@ public class Keywords  {
 		driver.findElement(By.xpath(OR.getProperty(Object))).sendKeys(Keys.TAB);
 		}
 		catch (Exception e) {
-			return Constants.Keyword_Fail+"not able to taab out"+e.getMessage();
+			return Constants.Keyword_Fail+"FR:Message: "+"not able to taab out"+" FR:Reason: " +e.getMessage();
 		}
 		return Constants.Keyword_Pass;
+	}
+	
+	public String resizeWindow(String Object, String data) {
+		try {
+			String[] size = Config.getProperty(data).split(",");
+			System.out.println("size:"+size[0]);
+			System.out.println("size:"+ size[1]);
+			int x = Integer.parseInt(size[0]);
+			System.out.println(x);
+			int y = Integer.parseInt(size[1]);
+			System.out.println(y);
+			
+			Dimension newSize = new Dimension(x,y);
+			driver.manage().window().setSize(newSize);
+			
+			
+		}
+		catch (Exception e) {
+			return Constants.Keyword_Fail+"FR:Message: "+"not able to resize window"+" FR:Reason: " +e.getMessage();
+		}
+		return Constants.Keyword_Pass;
+		
 	}
 
 

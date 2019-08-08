@@ -25,7 +25,7 @@ public class BaseTest {
 	public static Keywords keywords;
 	public static Properties OR, Config;
 	public static int totalRowinExcel,currentStep;
-	public static String currentKeyword, Object, data, keyword_execution_result,excutionResult;
+	public static String currentKeyword, Object, data, keyword_execution_result,excutionResult,failResult,failMessage,failReason;
 	public static ArrayList<String> resultSet;
 
 	
@@ -73,7 +73,7 @@ public class BaseTest {
 			if (data.equalsIgnoreCase("NA")) {
 				data = "";
 			}
-			System.out.println(currentKeyword);
+			
 			
 
 			for (int j = 0; j < method.length; j++) {
@@ -87,7 +87,15 @@ public class BaseTest {
 					resultSet=new ArrayList<String>();
 					resultSet.add(keyword_execution_result);
 					 excutionResult = resultSet.get(0);
-					System.out.println("Execution result:" + excutionResult);
+					
+					
+					if(excutionResult!="Pass") {
+						System.out.println("Execution result:" + excutionResult);
+						String[] excutionResultSplit = excutionResult.split("FR:");
+						 failResult = excutionResultSplit[0];
+						 failMessage = excutionResultSplit[1];
+						 failReason=excutionResultSplit[2];		
+					}
 					GeneralUtilities.Fetchdata.WriteExcelData("\\src\\test\\java\\GeneralUtilities\\ExecutionResult.xlsx", "TestSteps", 3);
 					
 				}
